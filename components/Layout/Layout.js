@@ -1,24 +1,10 @@
 'use client'
 
-import "./globals.css"; 
+import "./globals.css";
 import SideMenuBar from "@/components/Menu/MenuSideBar";
 import SideMenuBarRight from "@/components/Menu/MenuBarRight";
-import { usePathname } from 'next/navigation';
 
-
-export default function RootLayout({ children }) {
-  const pathname = usePathname();
-
-  // Desativa o layout global para a página custompage
-  if (pathname === '/login') {
-    return <>
-      <html>
-        <body>
-          {children}
-        </body>
-      </html>
-    </>;
-  }
+function RootLayout({ children }) {
 
   return (
     <html lang="pt-br">
@@ -36,3 +22,6 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+
+export default RootLayout;
