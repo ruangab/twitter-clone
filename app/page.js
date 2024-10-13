@@ -1,9 +1,24 @@
+"use client";
+
 import CardTwiter from "@/components/Cards/CardTwitter";
 import CardTwiterImage from "@/components/Cards/CardTwitterImage";
 import CreateTwitter from "@/components/Cards/CreateTwitter";
-
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 function MenuTitle() {
+  function redirectlogin(){
+    const name = localStorage.getItem("user");
+    const router = useRouter();
+
+    useEffect(() => {
+      if (name == null){
+        router.push("/login");
+      }
+    }, []);
+    
+  }
+  redirectlogin();
   return (
     <>
       {/*middle wall*/}

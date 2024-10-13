@@ -168,7 +168,7 @@ function SideMenuBar() {
                     </button>
                 </nav>
                 <div className="flex-shrink-0 flex hover:bg-blue-00 rounded-full p-4 mt-12 mr-2">
-                    <a href="#" className="flex-shrink-0 group block">
+                    <button className="bg-black mt-5 hover:bg-zinc-800 py-2 px-4 rounded-full">
                         <div className="flex items-center">
                             <div>
                                 <img
@@ -186,7 +186,7 @@ function SideMenuBar() {
                                 </p>
                             </div>
                         </div>
-                    </a>
+                    </button>
                 </div>
             </div>
 

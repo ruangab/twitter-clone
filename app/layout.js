@@ -20,11 +20,12 @@ export default function RootLayout({ children }) {
     </>;
   }
 
+
   return (
     <html lang="pt-br">
       <body className="h-screen items-center justify-center">
         <div className="bg-black">
-          <div class="flex">
+          <div className="flex">
             <SideMenuBar></SideMenuBar>
             <div className="w-3/5 border border-gray-600 h-auto  border-t-0">
               {children}
