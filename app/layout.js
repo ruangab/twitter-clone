@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   // Desativa o layout global para a página custompage
   if (pathname === '/login') {
     return <>
-      <html>
+      <html lang="pt-br">
         <body>
           {children}
         </body>
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <div className="bg-black">
           <div className="flex">
             <SideMenuBar></SideMenuBar>
-            <div className="w-3/5 border border-gray-600 h-auto  border-t-0">
+            <div className="w-3/5 border border-gray-600 h-auto border-t-0">
               {children}
             </div>
             <SideMenuBarRight></SideMenuBarRight>

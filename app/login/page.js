@@ -3,10 +3,44 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+async function authenticate(username, passsword) {
+    try {
+        const axios = require('axios');
+
+        const json = {
+            "identifier":username,
+            "password":passsword
+        }
+        console.log(json);
+
+        const response = await axios.post('https://bsky.social/xrpc/com.atproto.server.createSession', json);
+        if (!response.ok) {
+            throw new Error(`Erro ao fazer login: ${response.statusText}`);
+        }
+        const data = await response.json();
+
+        if (data && data.accessJwt) {
+            console.log('Login bem-sucedido, token recebido:', data.accessJwt);
+            
+            // Armazenar o token no localStorage ou cookies
+            localStorage.setItem('accessJwt', data.accessJwt);
+      
+            // Retorne o token ou a resposta completa se precisar
+            router.push("/");
+          } else {
+            router.push("/login");
+            throw new Error('Falha na autenticação: Token de acesso não encontrado.');
+          }
+
+    } catch (error) {
+        console.error('Erro ao autenticar:', error);
+    }
+}
 
 export default function CustomPage() {
     const [senha, setSenha] = useState("");
     const [usuario, setUsuario] = useState("");
+  
     const router = useRouter();
 
     console.log(senha);
@@ -14,13 +48,9 @@ export default function CustomPage() {
 
     const login = (e) => {
         e.preventDefault();
-    
-        if(senha == "123" && usuario == "ruan"){
-            router.push("/");
-            localStorage.setItem("user", usuario);
-        }else{
-            alert("login incorreto");
-        }
+        
+        authenticate(usuario, senha);
+      
     }
     
     return (

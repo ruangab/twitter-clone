@@ -8,10 +8,11 @@ import { useEffect } from "react";
 
 function MenuTitle() {
   function redirectlogin(){
-    const name = localStorage.getItem("user");
     const router = useRouter();
 
     useEffect(() => {
+      const name = localStorage.getItem("token");
+
       if (name == null){
         router.push("/login");
       }
