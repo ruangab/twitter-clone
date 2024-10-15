@@ -5,6 +5,8 @@ import CardTwiterImage from "@/components/Cards/CardTwitterImage";
 import CreateTwitter from "@/components/Cards/CreateTwitter";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { getUser } from "@/models/user";
+import { getUserFeeds } from "@/models/Feeds";
 
 function MenuTitle() {
   function redirectlogin(){
@@ -19,7 +21,15 @@ function MenuTitle() {
     }, []);
     
   }
+
+
   redirectlogin();
+  useEffect(() => {
+    getUser();
+    getUserFeeds();
+  }, []);
+
+  
   return (
     <>
       {/*middle wall*/}
