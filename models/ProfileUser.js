@@ -6,7 +6,7 @@ export async function getUser(){
         const user = localStorage.getItem("handle");
         const request = await axios({
             method:"get",
-            url:`https://bsky.social/xrpc/app.bsky.actor.getProfile?actor=${user}`,
+            url:`https://lionsmane.us-east.host.bsky.network/xrpc/app.bsky.actor.getProfile?actor=${user}`,
             headers:{
                 "Authorization":`Bearer ${accessToken}`
             }

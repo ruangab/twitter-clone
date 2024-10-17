@@ -1,35 +1,23 @@
 "use client";
 
-import CardTwiter from "@/components/Cards/CardTwitter";
-import CardTwiterImage from "@/components/Cards/CardTwitterImage";
-import CreateTwitter from "@/components/Cards/CreateTwitter";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { getUser } from "@/models/user";
-import { getUserFeeds } from "@/models/Feeds";
+import { useEffect, useState } from "react";
+import FeedView from "@/views/Feed/feedView";
+
+
 
 function MenuTitle() {
-  function redirectlogin(){
     const router = useRouter();
 
     useEffect(() => {
-      const name = localStorage.getItem("token");
+      const name = localStorage.getItem("accessToken");
 
       if (name == null){
         router.push("/login");
       }
-    }, []);
+
+    }, [router]);
     
-  }
-
-
-  redirectlogin();
-  useEffect(() => {
-    getUser();
-    getUserFeeds();
-  }, []);
-
-  
   return (
     <>
       {/*middle wall*/}
@@ -59,19 +47,7 @@ export default function Home() {
   return (
     <>
       <MenuTitle></MenuTitle>
-      <CreateTwitter></CreateTwitter>
-      <CardTwiter></CardTwiter>
-      <CardTwiter></CardTwiter>
-      <CardTwiterImage></CardTwiterImage>
-      <CardTwiter></CardTwiter>
-      <CardTwiter></CardTwiter>
-      <CardTwiterImage></CardTwiterImage>
-      <CardTwiter></CardTwiter>
-      <CardTwiter></CardTwiter>
-      <CardTwiterImage></CardTwiterImage>
-      <CardTwiter></CardTwiter>
-      <CardTwiterImage></CardTwiterImage>
-      <CardTwiter></CardTwiter>
+      <FeedView></FeedView>
     </>
   );
 }

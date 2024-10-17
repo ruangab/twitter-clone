@@ -1,5 +1,4 @@
 export default function LoginForm({onSubmit}) {
-    console.log(onSubmit);
     return (
         <form className="" onSubmit={onSubmit}>
             <h1 className="text-center">Login</h1>

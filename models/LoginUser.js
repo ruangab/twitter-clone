@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const apiLink = 'https://bsky.social/xrpc/com.atproto.server.createSession';
+const apiLink = 'https://lionsmane.us-east.host.bsky.network/xrpc/com.atproto.server.createSession';
 
 export async function loginUser(user, pass) {
     try {
